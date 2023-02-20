@@ -1,11 +1,10 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Box from 'components/Box';
-import { Headline } from 'components/Title';
 import ContactList from 'components/ContactList';
-import Filter from 'components/Filter';
 // import Form from 'components/Form';
 import FormFormik from 'components/Formik';
+import { Headline } from 'components/Title';
 
 const App = () => {
   return (
@@ -22,11 +21,8 @@ const App = () => {
         mx="auto"
       >
         <Headline HeadlineLogo>Phonebook</Headline>
-        <FormFormik></FormFormik>
-        <Headline>Contacts</Headline>
-        <ContactList>
-          <Filter />
-        </ContactList>
+        <FormFormik />
+        <ContactList />
       </Box>
       <ToastContainer
         position="top-right"

@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import {
   Button,
   ContactForm,
