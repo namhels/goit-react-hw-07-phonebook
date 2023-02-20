@@ -4,12 +4,19 @@ import { List } from './ContactList.Styled';
 import { Headline } from 'components/Title';
 import ContactItem from 'components/ContactItem';
 import Filter from 'components/Filter';
+// import { fetchContacts } from 'redux/operations';
+// import { useEffect } from 'react';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
-  console.log(contacts);
+  // useEffect(() => {
+  //   contacts = fetchContacts();
+  // }, []);
+
+  // console.log(contacts);
+
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase().trim();
     return contacts.filter(contact =>

@@ -1,5 +1,5 @@
 // https://63f38206864fb1d60018048b.mockapi.io/contacts/:endpoint
-// https://61fe50b5a58a4e00173c97d8.mockapi.io/contacts
+
 // fetchContacts - получение массива контактов (метод GET) запросом. Базовый тип экшена "contacts/fetchAll".
 // addContact - добавление контакта (метод POST). Базовый тип экшена "contacts/addContact".
 // deleteContact - удаление контакта (метод DELETE). Базовый тип экшена "contacts/deleteContact".
