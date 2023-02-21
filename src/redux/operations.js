@@ -1,9 +1,5 @@
 // https://63f38206864fb1d60018048b.mockapi.io/contacts/:endpoint
 
-// fetchContacts - получение массива контактов (метод GET) запросом. Базовый тип экшена "contacts/fetchAll".
-// addContact - добавление контакта (метод POST). Базовый тип экшена "contacts/addContact".
-// deleteContact - удаление контакта (метод DELETE). Базовый тип экшена "contacts/deleteContact".
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 

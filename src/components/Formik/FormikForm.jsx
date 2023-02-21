@@ -32,7 +32,7 @@ const FormFormik = () => {
       toast.error(`${name} is already in contacts`);
       return;
     }
-    dispatch(addContact(name, number));
+    dispatch(addContact({ name, number }));
     toast.success(`${name} was added to contacts`);
     resetForm();
   };

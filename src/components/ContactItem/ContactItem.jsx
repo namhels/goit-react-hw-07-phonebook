@@ -9,7 +9,7 @@ const ContactItem = ({ contact }) => {
   const { id, name, number } = contact;
 
   const onDeleteContact = () => {
-    dispatch(deleteContact({ id }));
+    dispatch(deleteContact(id));
     toast.warn(`${name} was deleted from contacts`);
   };
 

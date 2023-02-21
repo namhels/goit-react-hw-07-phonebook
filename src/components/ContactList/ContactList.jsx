@@ -1,21 +1,28 @@
-import { useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getContacts,
+  getFilter,
+  getIsLoading,
+  getError,
+} from 'redux/selectors';
 import { List } from './ContactList.Styled';
 import { Headline } from 'components/Title';
 import ContactItem from 'components/ContactItem';
 import Filter from 'components/Filter';
-// import { fetchContacts } from 'redux/operations';
-// import { useEffect } from 'react';
+import Loader from 'components/Loader';
+import { fetchContacts } from 'redux/operations';
 
 const ContactList = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
-  // useEffect(() => {
-  //   contacts = fetchContacts();
-  // }, []);
-
-  // console.log(contacts);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase().trim();
@@ -28,9 +35,11 @@ const ContactList = () => {
     <>
       {contacts.length > 0 ? (
         <>
+          {isLoading && !error && <Loader />}
           <Headline>Contacts</Headline>
           <List>
             <Filter />
+            {/* {isLoading && !error && <Loader />} */}
             {getVisibleContacts().map(contact => (
               <ContactItem key={contact.id} contact={contact}></ContactItem>
             ))}
