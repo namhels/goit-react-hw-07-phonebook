@@ -48,4 +48,11 @@ const Button = styled.button`
   }
 `;
 
-export { Item, Button };
+const ContactData = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: ${p => p.theme.space[4]}px;
+`;
+
+export { Item, Button, ContactData };

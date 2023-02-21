@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getContacts,
-  getFilter,
-  getIsLoading,
-  getError,
+  selectContacts,
+  selectIsLoading,
+  selectError,
+  selectVisibleContacts,
 } from 'redux/selectors';
 import { List } from './ContactList.Styled';
 import { Headline } from 'components/Title';
@@ -15,32 +15,24 @@ import { fetchContacts } from 'redux/operations';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
+  const visibleContacts = useSelector(selectVisibleContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase().trim();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  };
-
   return (
     <>
+      {isLoading && !error && <Loader />}
       {contacts.length > 0 ? (
         <>
-          {isLoading && !error && <Loader />}
           <Headline>Contacts</Headline>
           <List>
             <Filter />
-            {/* {isLoading && !error && <Loader />} */}
-            {getVisibleContacts().map(contact => (
+            {visibleContacts.map(contact => (
               <ContactItem key={contact.id} contact={contact}></ContactItem>
             ))}
           </List>

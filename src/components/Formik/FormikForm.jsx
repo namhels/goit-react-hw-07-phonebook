@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import {
   Button,
@@ -25,7 +25,7 @@ const initialValues = {
 
 const FormFormik = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = ({ name, number }, { resetForm }) => {
     if (contacts.find(el => el.name === name)) {

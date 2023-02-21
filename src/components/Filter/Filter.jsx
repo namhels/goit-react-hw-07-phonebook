@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FindIcon, Input } from './Filter.Styled';
 import Box from 'components/Box';
 import { changeFilter } from 'redux/filterSlice';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const handleChange = e => {
     const value = e.currentTarget.value;

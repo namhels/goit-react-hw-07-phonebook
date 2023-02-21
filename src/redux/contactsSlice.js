@@ -29,17 +29,17 @@ export const contactsSlice = createSlice({
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.items = action.payload.reverse();
     },
     [fetchContacts.rejected]: handleRejected,
-    [addContact.pending]: handlePending,
+    // [addContact.pending]: handlePending,
     [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items.unshift(action.payload);
     },
     [addContact.rejected]: handleRejected,
-    [deleteContact.pending]: handlePending,
+    // [deleteContact.pending]: handlePending,
     [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;

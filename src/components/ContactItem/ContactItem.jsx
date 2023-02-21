@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { deleteContact } from 'redux/operations';
-import { Button, Item } from './ContactItem.Styled';
+import { Button, ContactData, Item } from './ContactItem.Styled';
 
 const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
@@ -15,9 +15,10 @@ const ContactItem = ({ contact }) => {
 
   return (
     <Item>
-      <p>
-        {name}: {number}
-      </p>
+      <ContactData>
+        <p>{name}:</p>
+        <p>{number}</p>
+      </ContactData>
       <Button type="button" onClick={onDeleteContact}>
         delete
       </Button>
